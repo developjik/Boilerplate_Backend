@@ -9,7 +9,7 @@ import {
   Patch,
   Post,
   Req,
-  UseGuards,
+  // UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -18,10 +18,10 @@ import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 import { Board } from './board.entity';
-import { AuthGuard } from '@nestjs/passport';
+// import { AuthGuard } from '@nestjs/passport';
 
 @Controller('boards')
-@UseGuards(AuthGuard())
+// @UseGuards(AuthGuard())
 export class BoardsController {
   private logger = new Logger('BoardsController');
 
