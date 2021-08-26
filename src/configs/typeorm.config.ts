@@ -5,6 +5,7 @@ const dbConfig = config.get('db');
 
 export const typeORMConfig: TypeOrmModuleOptions = {
   type: dbConfig.type,
+  url: process.env.DATABASE_URL || '',
   host: process.env.POSTGRES_HOST || dbConfig.host,
   port: dbConfig.port,
   username: process.env.POSTGRES_USERNAME || dbConfig.username,
