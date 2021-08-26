@@ -28,8 +28,7 @@ export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
   @Get('/')
-  getAllBoards(@Req() req): Promise<Board[]> {
-    this.logger.verbose(`${req.user.name} trying to get all boards...`);
+  getAllBoards(): Promise<Board[]> {
     return this.boardsService.getAllBoards();
   }
 
