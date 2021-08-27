@@ -10,7 +10,6 @@ export class AuthController {
   signUp(
     @Body(ValidationPipe) authCredentialDto: AuthCredentialDto,
   ): Promise<void> {
-    console.log(authCredentialDto);
     return this.authService.signUp(authCredentialDto);
   }
 

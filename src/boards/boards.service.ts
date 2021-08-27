@@ -17,19 +17,19 @@ export class BoardsService {
     return this.boardRepository.getAllBoards();
   }
 
-  getBoardById(id: number): Promise<Board> {
-    return this.boardRepository.getBoardById(id);
+  getBoardById(index: number): Promise<Board> {
+    return this.boardRepository.getBoardByIndex(index);
   }
 
   createBoard(createBoardDto: CreateBoardDto, user: User): Promise<Board> {
     return this.boardRepository.createBoard(createBoardDto, user);
   }
 
-  delelteBoard(id: number, user: User): Promise<void> {
-    return this.boardRepository.delelteBoard(id, user);
+  delelteBoard(index: number, user: User): Promise<void> {
+    return this.boardRepository.delelteBoard(index, user);
   }
 
-  updateBoardStatus(id: number, status: BoardStatus): Promise<Board> {
-    return this.boardRepository.updateBoardStatus(id, status);
+  updateBoardStatus(index: number, status: BoardStatus): Promise<Board> {
+    return this.boardRepository.updateBoardStatus(index, status);
   }
 }

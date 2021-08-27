@@ -32,9 +32,9 @@ export class BoardsController {
     return this.boardsService.getAllBoards();
   }
 
-  @Get('/:id')
-  getBoardById(@Param('id') id: number): Promise<Board> {
-    return this.boardsService.getBoardById(id);
+  @Get('/:index')
+  getBoardById(@Param('index') index: number): Promise<Board> {
+    return this.boardsService.getBoardById(index);
   }
 
   @Post('/create')
@@ -43,21 +43,21 @@ export class BoardsController {
     @Body() createBoardDto: CreateBoardDto,
     @Req() req,
   ): Promise<Board> {
-    this.logger.verbose(`${req.user.name} creating a new board.
+    this.logger.verbose(`${req.user.id} creating a new board.
     Payload : ${JSON.stringify(createBoardDto, req.user)}`);
     return this.boardsService.createBoard(createBoardDto, req.user);
   }
 
-  @Delete('/:id')
-  deleteBoard(@Param('id', ParseIntPipe) id, @Req() req): Promise<void> {
-    return this.boardsService.delelteBoard(id, req.user);
+  @Delete('/:index')
+  deleteBoard(@Param('index', ParseIntPipe) index, @Req() req): Promise<void> {
+    return this.boardsService.delelteBoard(index, req.user);
   }
 
-  @Patch('/:id/status')
+  @Patch('/:index/status')
   updateBoardStatus(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('index', ParseIntPipe) index: number,
     @Body('status', BoardStatusValidationPipe) status: BoardStatus,
   ): Promise<Board> {
-    return this.boardsService.updateBoardStatus(id, status);
+    return this.boardsService.updateBoardStatus(index, status);
   }
 }

@@ -11,7 +11,7 @@ import { BoardStatus } from './boards.status.enum';
 @Entity()
 export class Board extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  index: number;
 
   @Column()
   title: string;
@@ -21,6 +21,12 @@ export class Board extends BaseEntity {
 
   @Column()
   status: BoardStatus;
+
+  @Column()
+  creator: string;
+
+  @Column()
+  createAt: string;
 
   @ManyToOne((type) => User, (user) => user.boards, { eager: false })
   user: User;
